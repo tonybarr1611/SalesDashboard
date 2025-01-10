@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <title>Sales by salesperson</title>
+
+    <!-- Import Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Import jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Import ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+
+    <!-- FontAwesome icons -->
+    <script
+      src="https://kit.fontawesome.com/6c365d0a23.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body
+    data-bs-theme="dark"
+    style="display: flex; flex-direction: column; min-height: 100vh"
+  >
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid d-flex justify-content-between">
+        <div class="navbar-brand mb-0 h1 d-flex align-items-center">
+          <img
+            src="/assets/logo.png"
+            alt="Page logo"
+            style="height: 10%; width: 10%"
+          />
+          <h1 id="spName"></h1>
+        </div>
+        <div>
+          <a href="/html/index.html" class="text-decoration-none text-light h2">
+            <i class="fa-solid fa-user-xmark"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-header"><h5>Week tracking</h5></div>
+            <div class="card-body">
+              <div class="row text-center">
+                <div class="col">
+                  <h5>Sold</h5>
+                  <p id="totalSales"></p>
+                </div>
+                <div class="col">
+                  <h5>Budget</h5>
+                  <p id="currentBudget"></p>
+                </div>
+                <div class="col">
+                  <h5>Difference</h5>
+                  <p id="difference"></p>
+                </div>
+              </div>
+              <div id="weekGraph" style="height: 34.6vh"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 d-flex flex-column">
+          <div class="card mb-3 pt-2 pb-2">
+            <div class="card-body text-center">
+              <h5>Accomplished</h5>
+              <div id="accomplishedGraph" style="height: 25vh"></div>
+            </div>
+          </div>
+          <div class="card">
+            <div
+              class="card-body text-center d-flex flex-row justify-content-around"
+            >
+              <div class="p-2 mr-2">
+                <h5 class="display-5">Orders</h5>
+                <p id="orders" class="h5"></p>
+              </div>
+              <div class="p-2 ml-2 mt-3">
+                <i class="fa-solid fa-file-contract display-3"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 d-flex flex-column">
+          <div class="card bg-danger text-white mb-3 pt-2 pb-2">
+            <div class="card-body text-center">
+              <h5>
+                Forecast <span class="text-muted" id="forecastAmmount"></span>
+              </h5>
+              <div id="forecastGraph" style="height: 25vh"></div>
+            </div>
+          </div>
+          <div class="card">
+            <div
+              class="card-body text-center d-flex flex-row justify-content-around"
+            >
+              <div class="p-2 mr-2">
+                <h5 class="display-5">Quotes</h5>
+                <p id="quotations" class="h5"></p>
+              </div>
+              <div class="p-2 ml-2 mt-3">
+                <i class="fa-solid fa-cart-shopping display-3"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5>Annual summary</h5>
+              <div class="d-flex justify-content-around">
+                <div class="p-2">
+                  <h5 class="text-success">Sold</h5>
+                  <p id="anualSale" class="h3"></p>
+                  <p id="anualBudget" class="text-muted"></p>
+                </div>
+                <div class="p-2">
+                  <h5 class="text-success">Accomplished</h5>
+                  <p id="anualPercent" class="h3 text-danger"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5>Ventas vs. Devoluciones</h5>
+              <div class="d-flex justify-content-around">
+                <div class="p-2">
+                  <h5 class="text-success"><br /></h5>
+                  <p id="billed" class="h3"></p>
+                  <p class="text-muted">Billed</p>
+                </div>
+                <div class="p-2">
+                  <h5 id="returnPercent" class="text-muuted"></h5>
+                  <p id="returned" class="h3 text-danger"></p>
+                  <p class="text-muted">Returned</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+      <div class="container">
+        <span class="text-body-secondary"
+          >&COPY; All rights reserved. 2025</span
+        >
+      </div>
+    </footer>
+  </body>
+  <script type="module" src="../js/detail.js"></script>
+</html>

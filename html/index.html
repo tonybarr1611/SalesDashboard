@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <title>Sales Dashboard</title>
+
+    <!-- Importar el CSS de Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Importar Datatables -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"
+    />
+
+    <!-- FontAwesome icons -->
+    <script
+      src="https://kit.fontawesome.com/6c365d0a23.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body
+    data-bs-theme="dark"
+    style="display: flex; flex-direction: column; min-height: 100vh"
+  >
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <div class="navbar-brand mb-0 h1 d-flex align-items-center">
+          <img
+            src="/assets/logo.png"
+            alt="Page logo"
+            style="height: 10%; width: 10%"
+          />
+          <h1>Sales Dashboard</h1>
+        </div>
+      </div>
+    </nav>
+    <div class="container w-100 align-items-center h-100 p-3 mt-3">
+      <div class="table-responsive text-center">
+        <table
+          id="spsTable"
+          class="table nowrap table-striped table-bordered table-hover w-100 mt-5"
+        >
+          <thead>
+            <tr>
+              <th>Identificador</th>
+              <th>Vendedor</th>
+              <th>Venta</th>
+              <th>Meta</th>
+              <th>Diferencia</th>
+              <th>% de cumplimiento</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="spssTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+      <div class="container">
+        <span class="text-body-secondary"
+          >&COPY; All rights reserved. 2025</span
+        >
+      </div>
+    </footer>
+  </body>
+  <script src="../js/index.js"></script>
+</html>
