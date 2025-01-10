@@ -51,11 +51,20 @@ function spsDataBuild(data) {
     let row = [];
     row.push(spInfo.id);
     let generalData = spInfo.infoResult.data[0];
+    let accomplished = (generalData.sale / generalData.budget) * 100;
     row.push(generalData.slpName);
     row.push(formatCurrency(generalData.sale));
     row.push(formatCurrency(generalData.budget));
     row.push(formatCurrency(generalData.sale - generalData.budget));
-    row.push(formatPercentage((generalData.sale / generalData.budget) * 100));
+    row.push(
+      `<span class="bg-${
+        accomplished >= 100
+          ? "success"
+          : accomplished >= 80
+          ? "warning"
+          : "danger"
+      }">${formatPercentage(accomplished)}</span>`
+    );
     row.push(
       `<button class="btn btn-secondary" onclick="navigateToDetail(${spInfo.id})"><i class="fa-solid fa-arrow-right"></i></button>`
     );
